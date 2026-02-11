@@ -1,4 +1,4 @@
-package com.shivansh.todo_backend;
+package com.shivansh.todo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
