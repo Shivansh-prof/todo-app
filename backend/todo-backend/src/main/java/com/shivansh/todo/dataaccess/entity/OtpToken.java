@@ -18,4 +18,5 @@ public class OtpToken {
     private String purpose;
     private Boolean isUsed;
     private LocalDateTime createdAt;
+    private LocalDateTime expiresAt;
 }
