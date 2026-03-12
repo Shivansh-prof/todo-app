@@ -7,7 +7,7 @@ import com.shivansh.todo.dataaccess.entity.User;
 
 import java.time.LocalDateTime;
 
-public class TodoUserMapper {
+public class UserMapper {
 
     public static User addUserRequestToUserEntity(AddUserRequest request, String encodedPassword) {
 

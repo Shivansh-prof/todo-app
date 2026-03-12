@@ -41,7 +41,7 @@ public class JwtAuthenticationFilter implements WebFilter {
 
             if (jwtUtil.validateToken(token)) {
 
-                String email = jwtUtil.extractEmail(token);
+                String email = jwtUtil.extractUserId(token);
 
                 UsernamePasswordAuthenticationToken authentication =
                         new UsernamePasswordAuthenticationToken(

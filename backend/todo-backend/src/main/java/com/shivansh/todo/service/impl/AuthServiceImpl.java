@@ -2,7 +2,7 @@ package com.shivansh.todo.service.impl;
 
 import com.shivansh.todo.dataaccess.dto.LoginRequest;
 import com.shivansh.todo.dataaccess.dto.LoginResponse;
-import com.shivansh.todo.dataaccess.mapper.TodoUserMapper;
+import com.shivansh.todo.dataaccess.mapper.UserMapper;
 import com.shivansh.todo.dataaccess.repository.UserRepository;
 import com.shivansh.todo.exception.Error;
 import com.shivansh.todo.exception.UserException;
@@ -34,8 +34,8 @@ public class AuthServiceImpl implements AuthService {
                     if(!passwordMaches){
                         return Mono.error(new UserException(Error.INVALID_PASSWORD));
                     }
-                    String token = jwtUtil.generateToken(user.getEmail());
-                    return Mono.just(TodoUserMapper.toLoginResponse(user,token));
+                    String token = jwtUtil.generateToken(user.getUserId());
+                    return Mono.just(UserMapper.toLoginResponse(user,token));
                 });
     }
 }
