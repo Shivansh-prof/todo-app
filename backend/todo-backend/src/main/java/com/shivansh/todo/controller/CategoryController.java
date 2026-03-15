@@ -16,7 +16,7 @@ public class CategoryController {
 
     private final CategoryService categoryService;
 
-    @PostMapping("/create")
+    @PostMapping
     public Mono<CategoryResponse> createCategory(@RequestBody CreateCategoryRequest request) {
         return categoryService.createCategory(request);
     }
