@@ -4,6 +4,7 @@ import com.shivansh.todo.dataaccess.dto.CreateTodoRequest;
 import com.shivansh.todo.dataaccess.dto.TodoResponse;
 import com.shivansh.todo.dataaccess.dto.UpdateTodoRequest;
 import com.shivansh.todo.service.TodoService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -24,7 +25,7 @@ public class TodoController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Mono<TodoResponse> createTodo(@RequestBody CreateTodoRequest request) {
+    public Mono<TodoResponse> createTodo(@Valid @RequestBody CreateTodoRequest request) {
         return todoService.createTodo(request);
     }
 
@@ -54,7 +55,7 @@ public class TodoController {
     }
 
     @PutMapping("/{taskId}")
-    public Mono<Void> updateTodo(@PathVariable Long taskId, @RequestBody UpdateTodoRequest updateTodoRequest){
+    public Mono<Void> updateTodo(@PathVariable Long taskId, @Valid @RequestBody UpdateTodoRequest updateTodoRequest){
         return todoService.updateTodo(taskId,updateTodoRequest);
     }
     @PatchMapping("/{taskId}/complete")
@@ -63,6 +64,7 @@ public class TodoController {
     }
 
     @DeleteMapping("/{taskId}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     public Mono<Void> deleteTodo(@PathVariable Long taskId){
         return todoService.deleteTodo(taskId);
     }

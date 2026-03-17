@@ -26,8 +26,10 @@ public class CategoryServiceImpl implements CategoryService {
 
     private Mono<Long> getCurrentUserId() {
         return ReactiveSecurityContextHolder.getContext()
+                .switchIfEmpty(Mono.error(new RuntimeException("Security context not found")))
                 .map(context -> context.getAuthentication().getName())
-                .map(Long::parseLong);
+                .map(Long::parseLong)
+                .doOnNext(userId -> log.debug("Authenticated userId extracted: {}", userId));
     }
 
     @Override

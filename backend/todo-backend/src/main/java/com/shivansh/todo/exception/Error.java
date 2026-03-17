@@ -14,7 +14,8 @@ public enum Error {
     INVALID_PASSWORD("INVALID_PASSWORD","Invalid Email or Password"),
     CATEGORY_ALREADY_EXIST("CATEGORY_ALREADY_EXIST","Category with this name Already Exists. "),
     CATEGORY_DOES_NOT_EXIST("CATEGORY_DOES_NOT_EXIST","Category with this name Does Not Exists. "),
-    CATEGORY_RESERVED("CATEGORY_RESERVED","Sorry this category cannot be added or deleted");
+    CATEGORY_RESERVED("CATEGORY_RESERVED","Sorry this category cannot be added or deleted"),
+    TODO_DOES_NOT_EXIST("TODO_DOES_NOT_EXIST","Todo with this id Does Not Exists. ");
     private final String code;
     private final String message;
 }
